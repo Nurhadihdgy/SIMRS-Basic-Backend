@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "9b812510-2c8d-4ca1-a867-141477ef3b4a",
+		"name": "API SIMRS BASIC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27919581"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/v3/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"v3",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|PJtZET1UbONAXmETjLt0Sfh3nzWoIqrAO2qJTvLxca70c57b",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v3/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Poliklinik",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pol_id\": \"POL0000001\",\r\n  \"pol_name\": \"Poli Umum\",\r\n  \"pol_description\": \"Pelayanan umum\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/poliklinik",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"poliklinik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Poliklinik",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pol_name\": \"Poli Umum Update\",\r\n  \"pol_description\": \"Pelayanan umum harian\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/poliklinik/POL0000001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"poliklinik",
+						"POL0000001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete poliklinik",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pol_name\": \"Poli Umum Update\",\r\n  \"pol_description\": \"Pelayanan umum harian\"\r\n}\r\n\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/poliklinik/POL0000001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"poliklinik",
+						"POL0000001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Poliklinik",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v3/poliklinik?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"poliklinik"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"doctor_id\": \"DOC000000000001\",\r\n  \"doctor_name\": \"Dr. Andi\",\r\n  \"doctor_gender\": \"M\",\r\n  \"doctor_phone_number\": \"08123456789\",\r\n  \"doctor_address\": \"Jl. Pahlawan No. 1\",\r\n  \"doctor_email\": \"dr.andi@example.com\",\r\n  \"doctor_bio\": \"Spesialis Umum\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/doctor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"doctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"doctor_name\": \"Dr. Andi Update\",\r\n  \"doctor_gender\": \"M\",\r\n  \"doctor_phone_number\": \"08123456789\",\r\n  \"doctor_address\": \"Jl. Mawar 5\",\r\n  \"doctor_email\": \"dr.andi@example.com\",\r\n  \"doctor_bio\": \"Ahli Bedah Umum\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/doctor/DOC000000000001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"doctor",
+						"DOC000000000001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"doctor_name\": \"Dr. Andi Update\",\r\n  \"doctor_gender\": \"M\",\r\n  \"doctor_phone_number\": \"08123456789\",\r\n  \"doctor_address\": \"Jl. Mawar 5\",\r\n  \"doctor_email\": \"dr.andi@example.com\",\r\n  \"doctor_bio\": \"Ahli Bedah Umum\"\r\n}\r\n\r\n\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/doctor/DOC000000000001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"doctor",
+						"DOC000000000001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Doctor",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add Schedule",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"doctor_id\": \"DOC000000000001\",\r\n  \"pol_id\": \"POL0000001\",\r\n  \"schedule_date\": \"2025-10-31\",\r\n  \"schedule_start\": \"08:00\",\r\n  \"schedule_end\": \"11:00\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/schedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Schedule",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"doctor_id\": \"DOC000000000001\",\r\n  \"pol_id\": \"POL0000001\",\r\n  \"schedule_date\": \"2025-10-30\",\r\n  \"schedule_start\": \"08:00\",\r\n  \"schedule_end\": \"11:00\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/schedule/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"schedule",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Schedule",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"doctor_id\": \"DOC000000000001\",\r\n  \"pol_id\": \"POL0000001\",\r\n  \"schedule_date\": \"2025-10-30\",\r\n  \"schedule_start\": \"08:00\",\r\n  \"schedule_end\": \"11:00\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/schedule/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"schedule",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Schedule",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|X74urvHfR0PtBz9ruznzR3RGdQyLrHz5EjE2w4Tu98cb4bb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"doctor_id\": \"DOC000000000001\",\r\n  \"pol_id\": \"POL0000001\",\r\n  \"schedule_date\": \"2025-10-31\",\r\n  \"schedule_start\": \"08:00\",\r\n  \"schedule_end\": \"11:00\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v3/schedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v3",
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
